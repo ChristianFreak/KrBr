@@ -35,22 +35,22 @@ int main(int argc, char** argv)
 				switch (e.key.keysym.sym)
 				{
 				case SDLK_w:
-					camera.MoveForward(0.05f);
+					camera.MoveForward(0.3f);
 					break;
 				case SDLK_s:
-					camera.MoveForward(-0.05f);
+					camera.MoveForward(-0.3f);
 					break;
 				case SDLK_d:
-					camera.MoveRight(-0.05f);
+					camera.MoveRight(-0.1f);
 					break;
 				case SDLK_a:
-					camera.MoveRight(0.05f);
+					camera.MoveRight(0.1f);
 					break;
 				case SDLK_SPACE:
-					camera.GetPosition()->y -= 0.05f;
+					camera.GetPosition()->y -= 0.1f;
 					break;
 				case SDLK_LSHIFT:
-					camera.GetPosition()->y += 0.05f;
+					camera.GetPosition()->y += 0.1f;
 					break;
 				case SDLK_ESCAPE:
 					isRunning = false;
