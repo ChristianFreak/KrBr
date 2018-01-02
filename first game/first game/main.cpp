@@ -73,6 +73,12 @@ int main(int argc, char** argv)
 
 		display.Clear(0.0f, 0.0f, 0.0f, 1.0f);
 
+		int x = camera.GetPosition()->x;
+		int y = camera.GetPosition()->y;
+		int z = camera.GetPosition()->z;
+
+		std::printf("%d  |  %d  |  %d\n", x, y, z);
+
 		for (int i = 0; i < 4; i++)
 		{
 			for (int j = 0; j < 4; j++)
