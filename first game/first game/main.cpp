@@ -9,5 +9,7 @@ int main(int argc, char** argv)
 	GameHandler game(1280, 720, "KrBr");
 	
 	_getch();
+	game.Stop();
+	_getch();
 	return 0;
 }

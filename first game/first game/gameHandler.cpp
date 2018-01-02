@@ -1,56 +1,48 @@
 #include "gameHandler.h"
 
-GameHandler::GameHandler(int width, int height, string title) :
+GameHandler::GameHandler(int width, int height, string title) : isRunning(true),
 	m_renderT(&GameHandler::renderLoop, this), m_audioT(&GameHandler::audioLoop, this),
 	m_inputT(&GameHandler::inputLoop, this),   m_logicT(&GameHandler::logicLoop, this)
 {
-
 }
 
-void GameHandler::Start()
+void GameHandler::Stop()
 {
+	isRunning = false;
 	m_renderT.join();
 	m_audioT.join();
 	m_inputT.join();
 	m_logicT.join();
 }
 
-void GameHandler::Kill()
-{
-	m_renderT.~thread();
-	m_audioT.~thread();
-	m_inputT.~thread();
-	m_logicT.~thread();
-}
-
 void GameHandler::renderLoop()
 {
-	while (1)
+	while (isRunning)
 	{
-		printf("test1");
+		//Render Work
 	}
 }
 
 void GameHandler::audioLoop()
 {
-	while (1)
+	while (isRunning)
 	{
-		printf("test2");
+		//Audio Work
 	}
 }
 
 void GameHandler::inputLoop()
 {
-	while (1)
+	while (isRunning)
 	{
-		printf("test3");
+		//Input Work
 	}
 }
 
 void GameHandler::logicLoop()
 {
-	while (1)
+	while (isRunning)
 	{
-		printf("test4");
+		//Logic Work
 	}
 }

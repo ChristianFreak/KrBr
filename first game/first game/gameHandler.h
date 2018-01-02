@@ -9,8 +9,7 @@ class GameHandler
 {
 public:
 	GameHandler(int width, int height, string title);
-	void Start();
-	void Kill();
+	void Stop();
 private:
 	void renderLoop();
 	void audioLoop();
@@ -21,6 +20,8 @@ private:
 	thread m_audioT;
 	thread m_inputT;
 	thread m_logicT;
+
+	bool isRunning;
 };
 
 #endif // !GAMEHANDLER_H
