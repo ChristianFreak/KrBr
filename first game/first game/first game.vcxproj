@@ -161,11 +161,11 @@
     <ClInclude Include="transform.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\basicShader.fs" />
-    <None Include="res\basicShader.vs" />
+    <Image Include="tex\tex_01.png" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="tex\tex_01.png" />
+    <None Include="shaders\basicShader.fs" />
+    <None Include="shaders\basicShader.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

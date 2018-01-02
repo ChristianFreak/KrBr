@@ -13,11 +13,11 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="res">
-      <UniqueIdentifier>{503f4018-f95b-4a4b-8f41-3fc192ca0913}</UniqueIdentifier>
-    </Filter>
     <Filter Include="tex">
       <UniqueIdentifier>{4488f6b2-52eb-4252-b3fa-1276ca8d08b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{503f4018-f95b-4a4b-8f41-3fc192ca0913}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -70,16 +70,16 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\basicShader.vs">
-      <Filter>res</Filter>
-    </None>
-    <None Include="res\basicShader.fs">
-      <Filter>res</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="tex\tex_01.png">
       <Filter>tex</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shaders\basicShader.fs">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\basicShader.vs">
+      <Filter>shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>
