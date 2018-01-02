@@ -20,6 +20,8 @@ public:
 		return projection * glm::lookAt(pos, pos + forward, up);
 	}
 
+	inline glm::vec3* GetPosition() { return &pos; }
+
 	void MoveForward(float amt)
 	{
 		pos += forward * amt;
