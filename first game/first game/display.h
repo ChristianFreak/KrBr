@@ -8,6 +8,7 @@ class Display
 {
 public:
 	Display(int width, int height, const std::string& title);
+	Display(const Display& display) {}
 
 	void Clear(float r, float g, float b, float a);
 	void SwapBuffers();
@@ -16,7 +17,6 @@ public:
 protected:
 private:
 	void operator=(const Display& display) {}
-	Display(const Display& display) {}
 
 	SDL_Window* m_window;
 	SDL_GLContext m_glContext;

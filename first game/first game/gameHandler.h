@@ -1,7 +1,9 @@
 #ifndef GAMEHANDLER_H
 #define GAMEHANDLER_H
 
-#include <thread>
+#include "display.h"
+#include "camera.h"
+#include "renderCore.h"
 
 using namespace std;
 
@@ -10,18 +12,25 @@ class GameHandler
 public:
 	GameHandler(int width, int height, string title);
 	void Stop();
-private:
 	void renderLoop();
 	void audioLoop();
 	void inputLoop();
 	void logicLoop();
 
-	thread m_renderT;
-	thread m_audioT;
-	thread m_inputT;
-	thread m_logicT;
+	inline bool GetRunningState() { return m_isRunning; }
+private:
+	bool m_isRunning = false;
 
-	bool isRunning;
+	bool m_w = false;
+	bool m_a = false;
+	bool m_s = false;
+	bool m_d = false;
+
+	int m_width;
+	int m_height;
+	string m_title;
+
+	Camera m_camera;
 };
 
 #endif // !GAMEHANDLER_H

@@ -147,6 +147,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mesh.cpp" />
     <ClCompile Include="obj_loader.cpp" />
+    <ClCompile Include="renderCore.cpp" />
+    <ClCompile Include="renderTarget.cpp" />
     <ClCompile Include="shader.cpp" />
     <ClCompile Include="stb_image.c" />
     <ClCompile Include="texture.cpp" />
@@ -157,6 +159,8 @@
     <ClInclude Include="gameHandler.h" />
     <ClInclude Include="mesh.h" />
     <ClInclude Include="obj_loader.h" />
+    <ClInclude Include="renderCore.h" />
+    <ClInclude Include="renderTarget.h" />
     <ClInclude Include="shader.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="texture.h" />

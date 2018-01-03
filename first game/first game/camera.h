@@ -41,6 +41,14 @@ public:
 		change = glm::vec3(glm::normalize(glm::rotate(angle, right) * glm::vec4(change, 0.0)));
 		forward.x = change.x;
 		forward.z = change.z;
+		if (isFlying)
+		{
+			forward.y = change.y;
+		}
+		else
+		{
+			forward.y = 0;
+		}
 		up = glm::normalize(glm::cross(change, right));
 	}
 
@@ -56,6 +64,8 @@ public:
 		up = glm::vec3(glm::normalize(rotation * glm::vec4(up, 0.0)));
 	}
 
+	inline void SetFlying(bool state) { isFlying = state; }
+
 protected:
 private:
 	glm::mat4 projection;
@@ -63,6 +73,7 @@ private:
 	glm::vec3 forward;
 	glm::vec3 up;
 	glm::vec3 change;
+	bool isFlying;
 };
 
 #endif

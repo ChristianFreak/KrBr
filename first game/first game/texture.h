@@ -7,16 +7,14 @@
 class Texture
 {
 public:
-	Texture(const std::string& fileName);
+	Texture(const std::string& fileName);	
+	Texture(const Texture& texture) = default;
 
 	void Bind();
 
 	virtual ~Texture();
 protected:
 private:
-	Texture(const Texture& texture) {}
-	void operator=(const Texture& texture) {}
-
 	GLuint m_texture;
 };
 

@@ -51,6 +51,12 @@
     <ClCompile Include="gameHandler.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="renderTarget.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="renderCore.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="transform.h">
@@ -78,6 +84,12 @@
       <Filter>Headerdateien\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="gameHandler.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="renderCore.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="renderTarget.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
