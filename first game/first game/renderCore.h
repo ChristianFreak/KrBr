@@ -15,6 +15,7 @@ public:
 	
 	void RenderTargets();
 	void AddTarget(RenderTarget& target);
+	inline std::vector<RenderTarget*> GetRenderTargets() { return m_renderTargets; }
 private:
 	std::vector<RenderTarget*> m_renderTargets;
 	Shader m_shader;
