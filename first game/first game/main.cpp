@@ -13,6 +13,7 @@ int main(int argc, char** argv)
 	thread audio(&GameHandler::audioLoop, &game);
 	thread input(&GameHandler::inputLoop, &game);
 	thread logic(&GameHandler::logicLoop, &game);
+	thread gravity(&GameHandler::gravityLoop, &game);
 
 	while (game.GetRunningState())
 	{
@@ -23,6 +24,7 @@ int main(int argc, char** argv)
 	audio.join();
 	input.join();
 	logic.join();
+	gravity.join();
 
 	return 0;
 }

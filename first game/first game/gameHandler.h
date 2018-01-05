@@ -2,7 +2,7 @@
 #define GAMEHANDLER_H
 
 #include "display.h"
-#include "camera.h"
+#include "player.h"
 #include "renderCore.h"
 
 using namespace std;
@@ -16,6 +16,7 @@ public:
 	void audioLoop();
 	void inputLoop();
 	void logicLoop();
+	void gravityLoop();
 
 	inline bool GetRunningState() { return m_isRunning; }
 private:
@@ -30,7 +31,8 @@ private:
 	int m_height;
 	string m_title;
 
-	Camera m_camera;
+	Player m_player;
+	bool m_playerInitialized = false;
 };
 
 #endif // !GAMEHANDLER_H

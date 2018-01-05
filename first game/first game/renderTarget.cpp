@@ -2,7 +2,7 @@
 
 RenderTarget::RenderTarget(const std::string& filePath, Vertex* vertices, unsigned int numVertices, unsigned int* indices, unsigned int numIndices) :
 	m_texture(filePath),
-	m_mesh(vertices, sizeof(vertices) / sizeof(vertices[0]), indices, sizeof(indices) / sizeof(indices[0]))
+	m_mesh(vertices, numVertices, indices, numIndices)
 {
 }
 

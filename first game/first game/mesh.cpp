@@ -18,7 +18,7 @@ void Mesh::InitMesh(const IndexedModel& model)
 	glBindVertexArray(m_vertexArrayObject);
 
 	glGenBuffers(NUM_BUFFERS, m_vertexArrayBuffers);
-	
+
 	glBindBuffer(GL_ARRAY_BUFFER, m_vertexArrayBuffers[POSITION_VB]);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(model.positions[0]) * model.positions.size(), &model.positions[0], GL_STATIC_DRAW);
     glEnableVertexAttribArray(0);
@@ -50,7 +50,7 @@ Mesh::Mesh(Vertex* vertices, unsigned int numVertices, unsigned int* indices, un
 		model.texCoords.push_back(*vertices[i].GetTexCoord());
 		model.normals.push_back(*vertices[i].GetNormal());
 	}
-	
+
 	for(unsigned int i = 0; i < numIndices; i++)
         model.indices.push_back(indices[i]);
 
