@@ -4,6 +4,7 @@
 #include "vertex.h"
 #include "GL/glew.h"
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -22,6 +23,8 @@ private:
 	enum
 	{
 		POSITION_VB,
+		TEXCOORD_VB,
+
 		NUM_BUFFERS
 	};
 
