@@ -3,6 +3,7 @@
 #include "shader.h"
 #include "mesh.h"
 #include "texture.h"
+#include "camera.h"
 
 int main(int argc, char** argv)
 {
@@ -18,6 +19,7 @@ int main(int argc, char** argv)
 
 	Mesh mesh(vertices, sizeof(vertices) / sizeof(vertices[0]));
 	Texture texture(".\\textures\\tex_02.png");
+	Camera camera(vec3(0.0f, 0.0f, -2.0f), 100.0f, 800.0 / 600.0f, 0.01f, 1000.0f);
 	Transform transform;
 
 	float counter = 0.0f;
@@ -31,17 +33,16 @@ int main(int argc, char** argv)
 
 		transform.GetPosition().x = sinCounter;
 		transform.GetRotation().z = counter * 50;
-		transform.SetScale(vec3(cosCounter, cosCounter, cosCounter));
+		//transform.SetScale(vec3(cosCounter, cosCounter, cosCounter));
 
 		shader.Bind();
 		texture.Bind(0);
-		shader.Update(transform);
+		shader.Update(transform, camera);
 		mesh.Draw();
 
 		display.Update();
-		counter += 0.0001f;
+		counter += 0.000001f;
 	}
-
 
 	return 0;
 }

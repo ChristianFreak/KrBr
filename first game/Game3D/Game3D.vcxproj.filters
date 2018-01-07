@@ -56,6 +56,9 @@
     <ClInclude Include="transform.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="camera.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\basicShader.fs">
