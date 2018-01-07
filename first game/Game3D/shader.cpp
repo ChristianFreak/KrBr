@@ -20,6 +20,8 @@ Shader::Shader(const string& shaderFilePath)
 	glValidateProgram(m_program);
 	CheckShaderError(m_program, GL_VALIDATE_STATUS, true, "Error: Program is invalid: ");
 
+	m_uniforms[TRANSFORM_U] = glGetUniformLocation(m_program, "transform");
+
 	cout << "---Constructing Shader finished---" << endl;
 }
 
@@ -39,6 +41,12 @@ Shader::~Shader()
 void Shader::Bind()
 {
 	glUseProgram(m_program);
+}
+
+void Shader::Update(const Transform& transform)
+{
+	mat4 model = transform.GetModel();
+	glUniformMatrix4fv(m_uniforms[TRANSFORM_U], 1, GL_FALSE, &model[0][0]);
 }
 
 string Shader::LoadShader(const string& shaderFilePath)

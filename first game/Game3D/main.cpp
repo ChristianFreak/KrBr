@@ -18,14 +18,28 @@ int main(int argc, char** argv)
 
 	Mesh mesh(vertices, sizeof(vertices) / sizeof(vertices[0]));
 	Texture texture(".\\textures\\tex_02.png");
+	Transform transform;
+
+	float counter = 0.0f;
 
 	while (display.IsOpen())
 	{
 		display.Clear(0, 0, 0.15f, 0);
+
+		float sinCounter = sinf(counter);
+		float cosCounter = cosf(counter);
+
+		transform.GetPosition().x = sinCounter;
+		transform.GetRotation().z = counter * 50;
+		transform.SetScale(vec3(cosCounter, cosCounter, cosCounter));
+
 		shader.Bind();
 		texture.Bind(0);
+		shader.Update(transform);
 		mesh.Draw();
+
 		display.Update();
+		counter += 0.0001f;
 	}
 
 

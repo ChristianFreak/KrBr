@@ -53,6 +53,9 @@
     <ClInclude Include="texture.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="transform.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\basicShader.fs">
