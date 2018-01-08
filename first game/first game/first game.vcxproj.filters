@@ -19,89 +19,56 @@
     <Filter Include="shaders">
       <UniqueIdentifier>{503f4018-f95b-4a4b-8f41-3fc192ca0913}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Quelldateien\OpenGL">
-      <UniqueIdentifier>{76886c3b-2b93-47fb-a8f3-5c9625786213}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Headerdateien\OpenGL">
-      <UniqueIdentifier>{e35c28c5-052d-4400-8c82-0550208debbf}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="display.cpp">
-      <Filter>Quelldateien\OpenGL</Filter>
+      <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="mesh.cpp">
-      <Filter>Quelldateien\OpenGL</Filter>
+      <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="obj_loader.cpp">
-      <Filter>Quelldateien\OpenGL</Filter>
+      <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="shader.cpp">
-      <Filter>Quelldateien\OpenGL</Filter>
+      <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="stb_image.c">
-      <Filter>Quelldateien\OpenGL</Filter>
+      <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="texture.cpp">
-      <Filter>Quelldateien\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="gameHandler.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="renderTarget.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="renderCore.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="logicHandler.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="transform.h">
-      <Filter>Headerdateien\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="texture.h">
-      <Filter>Headerdateien\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="stb_image.h">
-      <Filter>Headerdateien\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="shader.h">
-      <Filter>Headerdateien\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="obj_loader.h">
-      <Filter>Headerdateien\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="mesh.h">
-      <Filter>Headerdateien\OpenGL</Filter>
+    <ClInclude Include="camera.h">
+      <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="display.h">
-      <Filter>Headerdateien\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="camera.h">
-      <Filter>Headerdateien\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="gameHandler.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="renderCore.h">
+    <ClInclude Include="mesh.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="renderTarget.h">
+    <ClInclude Include="obj_loader.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="logicHandler.h">
+    <ClInclude Include="shader.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="player.h">
+    <ClInclude Include="stb_image.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="move.h">
+    <ClInclude Include="transform.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="texture.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="vertex.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

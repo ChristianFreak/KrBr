@@ -1,25 +1,29 @@
-#ifndef DISPLAY_INCLUDED_H
-#define DISPLAY_INCLUDED_H
+#ifndef DISPLAY_H
+#define DISPLAY_H
 
+#include "GL\glew.h"
+#include "SDL2\SDL.h"
 #include <string>
-#include <SDL2/SDL.h>
+#include <iostream>
+
+using namespace std;
 
 class Display
 {
+
 public:
-	Display(int width, int height, const std::string& title);
-	Display(const Display& display) {}
+	Display(int width, int height, const string& title);
+	virtual ~Display();
 
 	void Clear(float r, float g, float b, float a);
 	void SwapBuffers();
 
-	virtual ~Display();
 protected:
-private:
-	void operator=(const Display& display) {}
 
+private:
 	SDL_Window* m_window;
 	SDL_GLContext m_glContext;
+
 };
 
-#endif
+#endif //!DISPLAY_H

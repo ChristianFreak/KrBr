@@ -1,11 +1,6 @@
 #include "mesh.h"
-#include <map>
-#include <algorithm>
-#include <fstream>
-#include <iostream>
-#include <stdlib.h>
 
-Mesh::Mesh(const std::string& fileName)
+Mesh::Mesh(const string& fileName)
 {
     InitMesh(OBJModel(fileName).ToIndexedModel());
 }
@@ -46,14 +41,16 @@ Mesh::Mesh(Vertex* vertices, unsigned int numVertices, unsigned int* indices, un
 
 	for(unsigned int i = 0; i < numVertices; i++)
 	{
-		model.positions.push_back(*vertices[i].GetPos());
+		model.positions.push_back(*vertices[i].GetPosition());
 		model.texCoords.push_back(*vertices[i].GetTexCoord());
 		model.normals.push_back(*vertices[i].GetNormal());
 	}
 
-	for(unsigned int i = 0; i < numIndices; i++)
-        model.indices.push_back(indices[i]);
-
+	for (unsigned int i = 0; i < numIndices; i++)
+	{
+		model.indices.push_back(indices[i]);
+	}
+      
     InitMesh(model);
 }
 
@@ -66,9 +63,6 @@ Mesh::~Mesh()
 void Mesh::Draw()
 {
 	glBindVertexArray(m_vertexArrayObject);
-
-	//glDrawElements(GL_TRIANGLES, m_numIndices, GL_UNSIGNED_INT, 0);
 	glDrawElementsBaseVertex(GL_TRIANGLES, m_numIndices, GL_UNSIGNED_INT, 0, 0);
-
 	glBindVertexArray(0);
 }

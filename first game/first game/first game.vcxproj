@@ -143,13 +143,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="display.cpp" />
-    <ClCompile Include="gameHandler.cpp" />
-    <ClCompile Include="logicHandler.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mesh.cpp" />
     <ClCompile Include="obj_loader.cpp" />
-    <ClCompile Include="renderCore.cpp" />
-    <ClCompile Include="renderTarget.cpp" />
     <ClCompile Include="shader.cpp" />
     <ClCompile Include="stb_image.c" />
     <ClCompile Include="texture.cpp" />
@@ -157,18 +153,13 @@
   <ItemGroup>
     <ClInclude Include="camera.h" />
     <ClInclude Include="display.h" />
-    <ClInclude Include="gameHandler.h" />
-    <ClInclude Include="logicHandler.h" />
     <ClInclude Include="mesh.h" />
-    <ClInclude Include="move.h" />
     <ClInclude Include="obj_loader.h" />
-    <ClInclude Include="player.h" />
-    <ClInclude Include="renderCore.h" />
-    <ClInclude Include="renderTarget.h" />
     <ClInclude Include="shader.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="texture.h" />
     <ClInclude Include="transform.h" />
+    <ClInclude Include="vertex.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="tex\tex_01.png" />

@@ -1,58 +1,67 @@
-#ifndef TRANSFORM_INCLUDED_H
-#define TRANSFORM_INCLUDED_H
+#ifndef TRANSFORM_H
+#define TRANSFORM_H
 
 #include "camera.h"
-#include "move.h"
+#include <glm/glm.hpp>
+#define GLM_ENABLE_EXPERIMENTAL
+#include <glm/gtx/transform.hpp>
 
-struct Transform : Move
+using namespace glm;
+
+struct Transform
 {
+
 public:
-	Transform(const glm::vec3& pos = glm::vec3(), const glm::vec3& rot = glm::vec3(), const glm::vec3& scale = glm::vec3(1.0f, 1.0f, 1.0f))
+	Transform(const vec3& pos, const vec3& rot, const vec3& scale)
 	{
-		this->SetPos(pos);
-		this->rot = rot;
-		this->scale = scale;
+		m_position = pos  ;
+		m_rotation = rot  ;
+		m_scale    = scale;
+	}
+	Transform()
+	{
+		m_position = vec3();
+		m_rotation = vec3();
+		m_scale    = vec3(1.0f, 1.0f, 1.0f);
 	}
 
-	inline glm::mat4 GetModel() const
+	inline mat4 GetModel() const
 	{
-		glm::mat4 posMat = glm::translate(this->GetPosConst());
-		glm::mat4 scaleMat = glm::scale(scale);
-		glm::mat4 rotX = glm::rotate(rot.x, glm::vec3(1.0, 0.0, 0.0));
-		glm::mat4 rotY = glm::rotate(rot.y, glm::vec3(0.0, 1.0, 0.0));
-		glm::mat4 rotZ = glm::rotate(rot.z, glm::vec3(0.0, 0.0, 1.0));
-		glm::mat4 rotMat = rotX * rotY * rotZ;
+		mat4 posMat = translate(m_position);
+		mat4 scaleMat = scale(m_scale);
+
+		mat4 rotX = rotate(m_rotation.x, vec3(1.0, 0.0, 0.0));
+		mat4 rotY = rotate(m_rotation.y, vec3(0.0, 1.0, 0.0));
+		mat4 rotZ = rotate(m_rotation.z, vec3(0.0, 0.0, 1.0));
+
+		mat4 rotMat = rotX * rotY * rotZ;
 
 		return posMat * rotMat * scaleMat;
 	}
 
-	inline glm::mat4 GetMVP(const Camera& camera) const
+	inline mat4 GetMVP(const Camera& camera) const
 	{
-		glm::mat4 VP = camera.GetViewProjection();
-		glm::mat4 M = GetModel();
+		mat4 VP = camera.GetViewProjection();
+		mat4 M = GetModel();
 
 		return VP * M;
 	}
 
-	void Pitch(float angle)
-	{
-		this->GetRot()->x += angle;
-	}
+	inline vec3* GetPosition() { return &m_position; }
+	inline vec3* GetRotation() { return &m_rotation; }
+	inline vec3* GetScale   () { return &m_scale   ; }
 
-	void RotateY(float angle)
-	{
-		this->GetRot()->y += angle;
-	}
+	inline void SetPosition(vec3& position) { m_position = position; }
+	inline void SetRotation(vec3& rotation) { m_rotation = rotation; }
+	inline void SetScale   (vec3& scale)    { m_scale    = scale   ; }
 
-	inline glm::vec3* GetRot() { return &rot; }
-	inline glm::vec3* GetScale() { return &scale; }
-
-	inline void SetRot(glm::vec3& rot) { this->rot = rot; }
-	inline void SetScale(glm::vec3& scale) { this->scale = scale; }
 protected:
+
 private:
-	glm::vec3 rot;
-	glm::vec3 scale;
+	vec3 m_position;
+	vec3 m_rotation;
+	vec3 m_scale;
+
 };
 
-#endif
+#endif //!TRANSFORM_H

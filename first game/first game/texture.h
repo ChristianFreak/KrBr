@@ -1,21 +1,27 @@
 #ifndef TEXTURE_H
 #define TEXTURE_H
 
+#include "GL\glew.h"
+#include "stb_image.h"
 #include <string>
-#include <GL/glew.h>
+#include <iostream>
+
+using namespace std;
 
 class Texture
 {
+
 public:
-	Texture(const std::string& fileName);	
-	Texture(const Texture& texture) = default;
+	Texture(const string& fileName);	
+	virtual ~Texture();
 
 	void Bind();
 
-	virtual ~Texture();
 protected:
+
 private:
 	GLuint m_texture;
+
 };
 
 #endif

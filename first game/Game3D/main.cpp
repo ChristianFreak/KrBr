@@ -12,14 +12,17 @@ int main(int argc, char** argv)
 
 	Vertex vertices[] =
 	{
-		Vertex( 0.0f, 0.5f, 0.0f, 0.5f, 1.0f),
-		Vertex(-0.5f,-0.5f, 0.0f, 0.0f, 0.0f),
-		Vertex( 0.5f,-0.5f, 0.0f, 1.0f, 0.0f),
+		Vertex( 0.0f, 0.0f, 0.0f, 0.0f, 1.0f),
+		Vertex( 0.0f, 0.5f, 0.0f, 0.0f, 0.0f),
+		Vertex( 0.5f, 0.0f, 0.0f, 1.0f, 0.0f),
 	};
 
-	Mesh mesh(vertices, sizeof(vertices) / sizeof(vertices[0]));
+	unsigned int indices[] = { 0, 1, 2 };
+
+	Mesh mesh(vertices, sizeof(vertices) / sizeof(vertices[0]), indices, sizeof(indices) / sizeof(indices[0]));
+	Mesh mesh2(".\\models\\monkey3.obj");
 	Texture texture(".\\textures\\tex_02.png");
-	Camera camera(vec3(0.0f, 0.0f, -2.0f), 100.0f, 800.0 / 600.0f, 0.01f, 1000.0f);
+	Camera camera(vec3(0.0f, 0.0f, -3.0f), 70.0f, 800.0f / 600.0f, 0.01f, 1000.0f);
 	Transform transform;
 
 	float counter = 0.0f;
@@ -28,20 +31,12 @@ int main(int argc, char** argv)
 	{
 		display.Clear(0, 0, 0.15f, 0);
 
-		float sinCounter = sinf(counter);
-		float cosCounter = cosf(counter);
-
-		transform.GetPosition().x = sinCounter;
-		transform.GetRotation().z = counter * 50;
-		//transform.SetScale(vec3(cosCounter, cosCounter, cosCounter));
-
 		shader.Bind();
 		texture.Bind(0);
 		shader.Update(transform, camera);
-		mesh.Draw();
+		mesh2.Draw();
 
 		display.Update();
-		counter += 0.000001f;
 	}
 
 	return 0;

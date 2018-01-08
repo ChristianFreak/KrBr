@@ -1,30 +1,49 @@
-#include "gameHandler.h"
-#include <conio.h>
-#include <thread>
+#include <iostream>
+#include <SDL2/SDL.h>
+#include "display.h"
+#include "mesh.h"
+#include "shader.h"
+#include "texture.h"
+#include "transform.h"
+#include "camera.h"
 
-#define WIDTH 1600
-#define HEIGHT 900
+static const int DISPLAY_WIDTH = 800;
+static const int DISPLAY_HEIGHT = 600;
 
 int main(int argc, char** argv)
 {
-	GameHandler game(WIDTH, HEIGHT, "KrBr");
+	Display display(DISPLAY_WIDTH, DISPLAY_HEIGHT, "OpenGL");
 
-	thread render(&GameHandler::renderLoop, &game);
-	thread audio(&GameHandler::audioLoop, &game);
-	thread input(&GameHandler::inputLoop, &game);
-	thread logic(&GameHandler::logicLoop, &game);
-	thread gravity(&GameHandler::gravityLoop, &game);
+	Mesh monkey(".\\models\\monkey3.obj");
+	Shader shader(".\\shaders\\basicShader");
+	Texture texture(".\\textures\\tex_02.png");
+	Transform transform;
+	Camera camera(glm::vec3(0.0f, 0.0f, -5.0f), 70.0f, (float)DISPLAY_WIDTH / (float)DISPLAY_HEIGHT, 0.1f, 100.0f);
 
-	while (game.GetRunningState())
+	SDL_Event e;
+	bool isRunning = true;
+	float counter = 0.0f;
+	while (isRunning)
 	{
-		SDL_Delay(100);
-	}
+		while (SDL_PollEvent(&e))
+		{
+			if (e.type == SDL_QUIT)
+			{
+				isRunning = false;
+			}
+		}
 
-	render.join();
-	audio.join();
-	input.join();
-	logic.join();
-	gravity.join();
+		display.Clear(0.0f, 0.0f, 0.0f, 1.0f);
+
+		shader.Bind();
+		texture.Bind();
+		shader.Update(transform, camera);
+		monkey.Draw();
+
+		display.SwapBuffers();
+		SDL_Delay(1);
+		counter += 0.0001f;
+	}
 
 	return 0;
 }

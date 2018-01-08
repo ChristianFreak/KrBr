@@ -1,31 +1,18 @@
-#ifndef MESH_INCLUDED_H
-#define MESH_INCLUDED_H
+#ifndef MESH_H
+#define MESH_H
 
 #include <GL/glew.h>
-#include <glm/glm.hpp>
+#include "obj_loader.h"
+#include "vertex.h"
 #include <string>
 #include <vector>
-#include "obj_loader.h"
+#include <map>
+#include <algorithm>
+#include <fstream>
+#include <iostream>
+#include <stdlib.h>
 
-struct Vertex
-{
-public:
-	Vertex(const glm::vec3& pos, const glm::vec2& texCoord, const glm::vec3& normal)
-	{
-		this->pos = pos;
-		this->texCoord = texCoord;
-		this->normal = normal;
-	}
-
-	glm::vec3* GetPos() { return &pos; }
-	glm::vec2* GetTexCoord() { return &texCoord; }
-	glm::vec3* GetNormal() { return &normal; }
-
-private:
-	glm::vec3 pos;
-	glm::vec2 texCoord;
-	glm::vec3 normal;
-};
+using namespace std;
 
 enum MeshBufferPositions
 {
@@ -38,21 +25,24 @@ enum MeshBufferPositions
 class Mesh
 {
 public:
-    Mesh(const std::string& fileName);
+    Mesh(const string& fileName);
 	Mesh(Vertex* vertices, unsigned int numVertices, unsigned int* indices, unsigned int numIndices);
-	Mesh(const Mesh& mesh) = default;
+	virtual ~Mesh();
 
 	void Draw();
-	virtual ~Mesh();
-protected:
-private:
-	static const unsigned int NUM_BUFFERS = 4;
 
-    void InitMesh(const IndexedModel& model);
+protected:
+
+private:
+	void InitMesh(const IndexedModel& model);
+
+	static const unsigned int NUM_BUFFERS = 4;
 
 	GLuint m_vertexArrayObject;
 	GLuint m_vertexArrayBuffers[NUM_BUFFERS];
+
 	unsigned int m_numIndices;
+
 };
 
-#endif
+#endif //!MESH_H
