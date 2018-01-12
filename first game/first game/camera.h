@@ -34,6 +34,11 @@ public:
 		m_position -= cross(m_up, m_forward) * amt;
 	}
 
+	void MoveDown(float amt)
+	{
+		m_position.y -= amt;
+	}
+
 	void Pitch(float angle)
 	{
 		vec3 right = normalize(cross(m_up, m_forward));
@@ -51,6 +56,8 @@ public:
 		m_forward = vec3(normalize(rotation * vec4(m_forward, 0.0)));
 		m_up = vec3(normalize(rotation * vec4(m_up, 0.0)));
 	}
+
+	inline vec3* GetPosition() { return &m_position; }
 
 protected:
 
